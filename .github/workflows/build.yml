@@ -17,6 +17,11 @@ jobs:
         with:
           repository: apple/unityplugins
           ref: ${{ inputs.apple_ref }}
+      - uses: actions/checkout@v4
+        with:
+          path: ci
+      - name: Patch Apple sources
+        run: python3 ci/patch_apple_sources.py
       - name: Show toolchain
         run: |
           xcodebuild -version
