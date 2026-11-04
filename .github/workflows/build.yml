@@ -23,11 +23,9 @@ jobs:
           xcodebuild -showsdks | grep -i iphoneos
           python3 --version
           npm --version
+      # The script asks whether to also build for macOS; that only serves Play Mode in a Mac Editor.
       - name: Build Core and GameKit for iOS
-        run: printf 'n
-n
-n
-' | python3 build.py -p Core GameKit -m iOS -bc Release -nc
+        run: yes n | python3 build.py -p Core GameKit -m iOS -bc Release -nc
       - name: List packages
         run: ls -la Build
       - uses: actions/upload-artifact@v4
