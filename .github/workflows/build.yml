@@ -24,7 +24,10 @@ jobs:
           python3 --version
           npm --version
       - name: Build Core and GameKit for iOS
-        run: python3 build.py -p Core GameKit -m iOS -bc Release -nc < /dev/null
+        run: printf 'n
+n
+n
+' | python3 build.py -p Core GameKit -m iOS -bc Release -nc
       - name: List packages
         run: ls -la Build
       - uses: actions/upload-artifact@v4
